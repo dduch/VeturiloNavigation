@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Veturilo Navigation</string>
+    <string name="title_activity_navigation">Map</string>
+    <string name="title_activity_user_input">UserInputActivity</string>
+    <string name="startposition">Write start position here</string>
+    <string name="destinationposition">Write destination here</string>
+</resources>
