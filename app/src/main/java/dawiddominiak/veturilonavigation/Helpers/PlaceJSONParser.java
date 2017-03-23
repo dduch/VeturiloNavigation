@@ -1,4 +1,4 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.Helpers;
 
 /**
  * Created by Dawid Dominiak on 2017-02-25.
@@ -11,6 +11,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import dawiddominiak.veturilonavigation.Models.NavLocation;
 
 public class PlaceJSONParser {
 
@@ -84,6 +86,29 @@ public class PlaceJSONParser {
                 JSONObject jsonobject = resultArray.getJSONObject(i);
                 if(jsonobject != null){
                     return  jsonobject.getString("formatted_address");
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public NavLocation ParseGeocodedInfo(String jsonString){
+        try {
+            JSONObject results = new JSONObject(jsonString);
+            JSONArray resultArray = results.getJSONArray("results");
+
+            for (int i = 0; i < resultArray.length(); i++) {
+                JSONObject jsonobject = resultArray.getJSONObject(i);
+                if(jsonobject != null){
+                    JSONObject geometry = jsonobject.getJSONObject("geometry");
+                    JSONObject location = geometry.getJSONObject("location");
+                    double lat = Double.parseDouble(location.getString("lat"));
+                    double lng = Double.parseDouble(location.getString("lng"));
+
+                    return new NavLocation(lat, lng);
                 }
             }
         } catch (JSONException e) {

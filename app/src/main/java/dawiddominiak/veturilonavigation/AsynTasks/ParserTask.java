@@ -1,4 +1,4 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.AsynTasks;
 
 /**
  * Created by Dawid Dominiak on 2017-02-26.
@@ -6,13 +6,14 @@ package dawiddominiak.veturilonavigation;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.AutoCompleteTextView;
 import android.widget.SimpleAdapter;
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
+
+import dawiddominiak.veturilonavigation.Helpers.PlaceJSONParser;
 
 /** A class to parse the Google Places in JSON format */
 public class ParserTask extends AsyncTask<String, Integer, List<HashMap<String,String>>> {

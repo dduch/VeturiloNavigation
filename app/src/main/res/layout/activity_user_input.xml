@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="dawiddominiak.veturilonavigation.UserInputActivity"
+    tools:context="dawiddominiak.veturilonavigation.Activities.UserInputActivity"
     android:orientation="vertical"
     android:baselineAligned="false"
     android:weightSum="1"
@@ -37,36 +37,28 @@
                 android:layout_below="@+id/StartLocalizationId"
                 android:layout_alignParentStart="true"/>
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@drawable/destinationlocation"
-                android:layout_below="@+id/destinationLabelId"
-                android:layout_alignEnd="@+id/startLocalizationId"
-                android:layout_marginTop="26dp"
-                android:id="@+id/destinationImageId"/>
-
-            <dawiddominiak.veturilonavigation.CustomAutoCompleteTextView
+            <dawiddominiak.veturilonavigation.Models.CustomAutoCompleteTextView
                 android:id="@+id/startPositionFieldId"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/startposition"
+                android:hint="@string/startpositionhint"
                 android:layout_alignTop="@+id/startLocalizationId"
                 android:layout_toEndOf="@+id/startLocalizationId"/>
 
-            <dawiddominiak.veturilonavigation.CustomAutoCompleteTextView
+            <dawiddominiak.veturilonavigation.Models.CustomAutoCompleteTextView
                 android:id="@+id/destinationFieldId"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/destinationposition"
+                android:hint="@string/destinationpositionhint"
                 android:layout_alignBottom="@+id/destinationImageId"
-                android:layout_toEndOf="@+id/destinationImageId"/>
+                android:layout_toEndOf="@+id/destinationImageId"
+                android:layout_alignTop="@+id/destinationImageId" />
 
             <TextView
-                android:text="Estimate speed (km/h):"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/estimateSpeedId"
+                android:text="@string/estimatespeed"
                 android:textSize="20sp"
                 android:textStyle="normal|bold"
                 android:layout_below="@+id/destinationImageId"
@@ -77,13 +69,13 @@
                 android:textColor="@color/cardview_light_background" />
 
             <TextView
-                android:text="Start localization:"
                 android:layout_height="wrap_content"
                 android:id="@+id/StartLocalizationId"
                 android:layout_width="match_parent"
                 android:layout_marginTop="33dp"
                 android:layout_below="@+id/UseMyLocationId"
                 android:layout_alignParentStart="true"
+                android:text="@string/startposition"
                 android:typeface="monospace"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-condensed"
@@ -95,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:max="40"
                 android:progress="1"
-                android:id="@+id/seekBar2"
+                android:id="@+id/speedBarId"
                 android:scrollbarSize="20dp"
                 android:layout_below="@+id/estimateSpeedId"
                 android:layout_alignParentStart="true"
@@ -104,7 +96,6 @@
                 android:thumb="@drawable/cast_ic_notification_stop_live_stream" />
 
             <Switch
-                android:text="Use my position"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/UseMyLocationId"
@@ -114,34 +105,63 @@
                 android:textAppearance="@android:style/TextAppearance.Widget.TabWidget"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif"
-                android:textStyle="normal|bold" />
-
-            <Button
-                android:layout_width="64dp"
-                android:id="@+id/StartNavigateId"
-                android:layout_marginTop="19dp"
-                android:layout_below="@+id/seekBar2"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/navigate"
-                tools:layout_width="wrap_content"
-                android:elevation="1dp"
-                android:textSize="20sp"
-                android:textColor="@color/cast_expanded_controller_background_color"
                 android:textStyle="normal|bold"
-                android:layout_height="64dp" />
+                android:text="Use my position"/>
 
             <TextView
-                android:text="Destination:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="27dp"
                 android:id="@+id/destinationLabelId"
+                android:text="@string/destination"
                 android:textSize="20sp"
                 android:textStyle="normal|bold"
                 android:fontFamily="monospace"
                 android:typeface="monospace"
                 android:textColor="@color/cardview_light_background"
                 android:layout_below="@+id/startLocalizationId"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="64dp"
+                android:id="@+id/StartNavigateId"
+                android:background="@drawable/navigate"
+                tools:layout_width="wrap_content"
+                android:elevation="1dp"
+                android:textSize="20sp"
+                android:textColor="@color/cast_expanded_controller_background_color"
+                android:textStyle="normal|bold"
+                android:layout_height="64dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textStyle="normal|bold"
+                android:textSize="20sp"
+                android:layout_below="@+id/speedBarId"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:layout_below="@+id/speedBarId"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/destinationlocation"
+                android:layout_marginTop="17dp"
+                android:id="@+id/destinationImageId"
+                android:layout_below="@+id/destinationLabelId"
                 android:layout_alignParentStart="true" />
 
         </RelativeLayout>

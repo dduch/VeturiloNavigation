@@ -1,4 +1,4 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.Helpers;
 
 import android.util.Log;
 

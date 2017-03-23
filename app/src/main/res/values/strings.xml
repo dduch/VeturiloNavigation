@@ -2,6 +2,10 @@
     <string name="app_name">Veturilo Navigation</string>
     <string name="title_activity_navigation">Map</string>
     <string name="title_activity_user_input">UserInputActivity</string>
-    <string name="startposition">Write start position here</string>
-    <string name="destinationposition">Write destination here</string>
+    <string name="startpositionhint">Write start position here</string>
+    <string name="startposition"> Start location</string>
+    <string name="destinationpositionhint">Write destination here</string>
+    <string name="destination">Destination</string>
+    <string name="estimatespeed">Estimate speed: 0 (km/h)</string>
+    <string name="usemyposition">Use my position </string>
 </resources>

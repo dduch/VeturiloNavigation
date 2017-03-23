@@ -1,13 +1,18 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.AsynTasks;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import dawiddominiak.veturilonavigation.Models.NavLocation;
+import dawiddominiak.veturilonavigation.Helpers.PlaceJSONParser;
+import dawiddominiak.veturilonavigation.Helpers.UrlDownloader;
+import dawiddominiak.veturilonavigation.Activities.UserInputActivity;
 
 /**
  * Created by Dawid Dominiak on 2017-03-08.
  */
 
-public class ReverseGeocoder extends AsyncTask<String, Void, String> {
+public class ReverseGeocoderTask extends AsyncTask<String, Void, String> {
     private double latitude;
     private double longitude;
     private UserInputActivity activity;
@@ -17,7 +22,7 @@ public class ReverseGeocoder extends AsyncTask<String, Void, String> {
 
     }
 
-    public ReverseGeocoder(double latitude, double longitude, UserInputActivity activity){
+    public ReverseGeocoderTask(double latitude, double longitude, UserInputActivity activity){
         this.latitude = latitude;
         this.longitude = longitude;
         this.activity = activity;
@@ -29,7 +34,7 @@ public class ReverseGeocoder extends AsyncTask<String, Void, String> {
         String data = "";
 
         // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&result_type=street_address&" + key[0];
+       String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&result_type=street_address&" + key[0];
 
         try{
             // Fetching the data from we service

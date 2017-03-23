@@ -1,4 +1,4 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.Helpers;
 
 import android.location.Location;
 import android.location.LocationListener;

@@ -1,4 +1,4 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.Models;
 
 import java.util.HashMap;
 

@@ -1,18 +1,14 @@
-package dawiddominiak.veturilonavigation;
+package dawiddominiak.veturilonavigation.AsynTasks;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.AutoCompleteTextView;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
+
+import dawiddominiak.veturilonavigation.Helpers.UrlDownloader;
 
 /**
  * Created by Dawid Dominiak on 2017-02-26.
@@ -36,7 +32,7 @@ public class PlacesTask extends AsyncTask<String, Void, String> {
         String data = "";
 
         // Obtain browser key from https://code.google.com/apis/console
-        String key = "key=AIzaSyDjJkTNpjWI3UAAJ78HycQ_2-Ow50mnncw";
+        String key = "key=AIzaSyCzCPTa9w1ekENLIDRQk69woBxesIW_KVM";
 
         String input="";
 
